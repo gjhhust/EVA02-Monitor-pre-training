@@ -25,7 +25,9 @@ Core packages:
 
 
 ## 准备数据集
+
 数据集组织只需要满足如下：
+
 1. 图片结尾是jpg和png
 2. 标注和图片的相对地址一致，后缀为txt
 3. txt标注格式： {"makeLabels":[{"code":4007,"name":"车辆出入口","index":0}, {"code":3012,"name":"机场","index":1}, {"code":2013,"name":"小路口","index":2}],"imagePath":"图片的相对地址"} 
@@ -54,11 +56,17 @@ data_root_dir/               # Root data directory
 note. label_dir即为标注目录，如果为空则表示标注和图片保存在同一目录下，否则将会通过替换data_dir为label_dir，再修改后缀txt来找到标注文件
 
 ## train
+
 主要参数说明；
+
 data_path: 训练集的根目录
+
 label_dir： 训练集的标注根目录（注意，标注和图片相对地址必须一致，比如/xx/xx/video1/image1.png，其标注为/yy/yy/yy/video1/image1.txt，则data_path=/xx/xx   label_dir=/yy/yy/yy）
+
 classes_json：类别映射的字典，格式是  number_index: 分类名
+
 nb_classes：类别数量
+
 output_dir、log_dir、input_size、epochs按需修改
 
 
@@ -104,10 +112,15 @@ python  run_class_finetuning.py \
 ## eval
 
 主要参数说明；
+
 eval_data_path: 测试集的根目录
+
 label_dir： 测试集的标注根目录
+
 classes_json：类别映射的字典，格式是  number_index: 分类名
+
 nb_classes：类别数量
+
 add_mode: 可选save_pred和plot，plot会在add_mode_dir下绘制可视化，save_pred则保存注释，并标注+ - x
 
 
