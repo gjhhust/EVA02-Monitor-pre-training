@@ -35,8 +35,7 @@ Core packages:
 
 ```
 data_root_dir/               # Root data directory
-├── class_map.json         
-├── train.txt        
+├── class_map.json           
 ├── images/              
 │   ├── video1/          
 │   │   ├── 0000000.png    
@@ -74,8 +73,8 @@ output_dir、log_dir、input_size、epochs按需修改
 eva02_L_pt_m38m_p14.pt作为预训练模型： https://gist.github.com/Yuxin-CV/6491f01a3a7a2f31115fb7a7a19c7148#file-eva02_l_pt_m38m_p14
 
 python  run_class_finetuning.py \
-        --data_path /data/jiahaoguo/dataset/jiankong/train \
-        --label_dir /data/jiahaoguo/dataset/jiankong/new_gt/train \
+        --data_path /data/jiahaoguo/dataset/jiankong/train_images \
+        --label_dir /data/jiahaoguo/dataset/jiankong/new_gt/train_labels \
         --classes_json /data/jiahaoguo/dataset/jiankong/classes_map.json \
         --disable_eval_during_finetuning \
         --nb_classes 87 \
@@ -127,9 +126,9 @@ add_mode: 可选save_pred和plot，plot会在add_mode_dir下绘制可视化，sa
 ```bash
 
 python run_class_finetuning.py \
-        --data_path /data/jiahaoguo/dataset/jiankong/dataset/test \
-        --label_dir /data/jiahaoguo/dataset/jiankong/new_gt/test \
-        --eval_data_path /data/jiahaoguo/dataset/jiankong/dataset/test \
+        --data_path /data/jiahaoguo/dataset/jiankong/dataset/test_images \
+        --label_dir /data/jiahaoguo/dataset/jiankong/new_gt/test_labels \
+        --eval_data_path /data/jiahaoguo/dataset/jiankong/dataset/test_images \
         --classes_json /data/jiahaoguo/dataset/jiankong/classes_map.json \
         --nb_classes 87 \
         --data_set muti_label \
