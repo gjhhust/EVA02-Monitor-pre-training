@@ -28,7 +28,30 @@ Core packages:
 数据集组织只需要满足如下：
 1. 图片结尾是jpg和png
 2. 标注和图片的相对地址一致，后缀为txt
-3. label_dir即为标注目录，如果为空则表示标注和图片保存在同一目录下，否则将会通过替换data_dir为label_dir，再修改后缀txt来找到标注文件
+3. txt标注格式： {"makeLabels":[{"code":4007,"name":"车辆出入口","index":0}, {"code":3012,"name":"机场","index":1}, {"code":2013,"name":"小路口","index":2}],"imagePath":"图片的相对地址"} 
+4. class_map.json : 字典格式文件包含所有的分类，key为数字格式的分类名code，value是对应中文的分类名name
+
+```
+data_root_dir/               # Root data directory
+├── class_map.json         
+├── train.txt        
+├── images/              
+│   ├── video1/          
+│   │   ├── 0000000.png    
+│   │   └── 0000001.png    
+│   ├── video2/            
+│   │   └── ...        
+│   └── ...            
+└── labels/          
+    ├── video1/         
+    │   ├── 0000000.txt    
+    │   └── 0000001.txt   
+    ├── video2/          
+    │   └── ...      
+    └── ...      
+```
+
+note. label_dir即为标注目录，如果为空则表示标注和图片保存在同一目录下，否则将会通过替换data_dir为label_dir，再修改后缀txt来找到标注文件
 
 ## train
 主要参数说明；
