@@ -108,7 +108,7 @@ python  run_class_finetuning.py \
         --muti_lables 
 ```
 
-
+ 
 ## eval
 
 主要参数说明；
